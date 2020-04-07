@@ -12,18 +12,17 @@ Note:
 
 Your algorithm should have a linear runtime complexity. 
 Could you implement it without using extra memory?
+Runtime: 84 ms, faster than 85.38% of Python3 online submissions for Single Number.
+Memory Usage: 16.4 MB, less than 6.56% of Python3 online submissions for Single Number.
 """
-
+#solution 1 runtime is 84ms and memory is 16.3mb
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
         nums.sort()
+        if(len(nums)== 1): return nums[0]
         try:
-            if(len(nums)== 1): return nums[0]
             for index,num in enumerate(nums):
-                if(index == 0 or index == len(nums)-1):
-                    if(num == nums[index-1]):pass
-                    elif(num != nums[index+1]): return num
+                if(num == nums[index-1]):pass
+                elif(num != nums[index+1]): return num
         except:
             return num
-
-print(singleNumber([17,12,5,-6,12,4,17,-5,2,-3,2,4,5,16,-3,-4,15,15,-4,-5,-6]))
